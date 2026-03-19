@@ -1,63 +1,25 @@
-def add(a, b):
-    return a + b
+#list - a list is an ordered and mutable sequence
 
-def subtract(a, b):
-    return a - b
+fruits = ["apple", "banana", "orange", "apple", "banana"]
 
-def multiply(a, b):
-    return a * b
+print(fruits.sort())
+print(sorted(fruits))
+#indexing - 0 based, -1 will print the last element
+print(fruits[-3])
 
-def divide(a, b):
-    if b == 0:
-        return "error : cannot divide by zero"
-    return a/b
+#mutating
+fruits[0] = "grapes"
+print(fruits[0])
+del fruits[0]
+print(fruits)
 
-def calculator():
-    print("=== CLI CALCULATOR ===")
-    print("Operations - + - * /")
-    print("Type 'quit' to exit/n")
+print(len(fruits))
+print(fruits.count("apple"))
 
+#slicing - it works on any sequence - list, tuple, strings etc
 
-while True:
+nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(nums[3:6]) # 3 is start and 6 is end index, end is exlusive
+print(nums[:5]) #if start or end not declared, then it considers the first and last element of the list
 
-    user_input = input("Enter expression (e.g 5 + 3) : ").strip()
-
-    if user_input.lower == "quit":
-        print("Goodbye!")
-        break
-
-    parts = user_input.split()
-
-    if len(parts) != 3:
-        print("Invalid format : Use - number operator number")
-        continue
-
-    num1_str, operator, num2_str = parts
-
-    try:
-        num1 = float(num1_str)
-        num2 = float(num2_str)
-
-    except ValueError:
-        print("Invalid numbers. Try again. \n")
-        continue
-
-    if operator == "+":
-        result = add(num1, num2)
-
-    elif operator == "-":
-        result = subtract(num1, num2)
-
-    elif operator == "*":
-        result = multiply(num1, num2)
-    elif operator == "/":
-        result = divide(num1, num2)
-
-    else:
-        print("Unknown operator '{operator}'. Use +, -, *, /\n")
-        continue
-    
-    print(f"Result: {num1} {operator} {num2} = {result}\n")
-
-calculator()
-   
+print(nums[:]) #if both not given, then gives full list
