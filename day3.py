@@ -218,3 +218,15 @@ print(lables)
 #dict 
 squares_dict = {x: x**2 for x in range(5)}
 print(squares_dict)
+
+
+# generator expression - its was concise way to create a iterator that produces values lazily - one at a time, instead of storing all values in memory at once.
+
+#it looks similar to list iterator but instead of [], it uses () paranthesis. the key idea is that a generator expression does not compute results immediately, it generates each value when needed, which makes it memory efficient and suitable for large datasets
+
+gen = [x**2 for x in range (10)] #allocates 1000 items
+
+print(gen)
+
+for i in gen:
+    print(i)
